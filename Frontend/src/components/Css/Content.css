@@ -1,0 +1,13 @@
+.content{
+   /* border-left: 1px solid blue;
+    border-right: 1px solid blue;*/
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+   
+}
+
+tbody.annoucecontentiui {
+    font-size: initial;
+}

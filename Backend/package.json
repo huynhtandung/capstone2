@@ -1,0 +1,21 @@
+{
+  "name": "capstone_project_bgrade_server",
+  "version": "1.0.0",
+  "description": "NodeJs_MSSM_Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "ethereumjs-tx": "^2.1.1",
+    "express": "^4.17.1",
+    "mssql": "^5.1.0",
+    "web3": "^1.2.1",
+    "xlsx": "^0.15.1"
+  }
+}

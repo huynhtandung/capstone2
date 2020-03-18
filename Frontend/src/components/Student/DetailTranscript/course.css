@@ -1,0 +1,77 @@
+
+.table-title{
+    background-color: mintcream;
+    font-weight: bolder;
+}
+.btn-view{
+    text-align: center;
+    
+}
+.record{
+    background-color: white;
+}
+
+button#dropdownMenu1 {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: larger;
+}
+
+.content1 {
+    background-color: #1677af;
+}
+
+p#test02 {
+    font-size: larger;
+    font-weight: inherit;
+}
+
+.panel-body {
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+table.table.table-bordered.table-hover.table-chinh {
+    font-size: larger;
+}
+
+thead.table-title {
+    /*border: 2px solid #1677af;*/
+    background-color: #b4b4b49c;
+}
+
+
+table.table.table-bordered.table-hover {
+    border: 2px solid #1677af;
+}
+
+.panel {
+   margin-bottom: 0px; 
+}
+
+.titlex {
+    padding: 0;
+    margin: 10px 0 0 0;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #1677af;
+    border-color: #ddd;
+}
+
+.table-responsive.table2 {
+    font-size: larger;
+}
+
+thead {
+    background-color: #d1d1d1;
+    border-bottom: 2px solid #1677af;
+}
+
+p.note {
+    font-weight: 500;
+    color: tomato;
+}

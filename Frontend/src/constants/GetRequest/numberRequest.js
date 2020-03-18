@@ -1,0 +1,2 @@
+export const NUMBER_REQUEST = 'NUMBER_REQUEST'; // pdt
+export const UPDATE_NUMBER_REQUEST = 'UPDATE_NUMBER_REQUEST'; // pdt

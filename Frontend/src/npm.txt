@@ -1,0 +1,5 @@
+react-router-dom
+react-redux
+axios
+redux
+redux-saga

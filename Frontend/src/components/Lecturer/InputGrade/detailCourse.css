@@ -1,0 +1,92 @@
+.li-outline{
+    width : 100%
+}
+.inputFile{
+    text-align: center;
+}
+.panel-heading{
+    text-align: center;
+}
+
+button.btn.btn-default.li-outline {
+    font-size: medium;
+    font-weight: 500;
+    text-align: left;
+}
+
+.ngoai {
+    position: relative;
+}   
+
+.form-inline.conxx {
+    position: absolute;
+    top: 57px;
+    left: 825px;
+}
+
+/*div#studentName {
+    
+}
+*/
+.hhhh{
+    color: tomato;
+    font-size: medium;
+    padding-right: 200px;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+.form-group.formxx2 {
+    margin-left: 5px;
+}
+
+.form-group.okok {
+    margin-left: 5px;
+}
+
+h3.titlexyz {
+    margin-bottom: 61px;
+    margin-top: 0px;
+}
+
+.con1 {
+    position: absolute;
+    top: 47px;
+    left: 23px;
+}
+
+.dropdown.xoxuong {
+    padding-bottom: 3px;
+}
+
+strong.uploadtitle {
+    color: tomato;
+    font-size: initial;
+}
+
+.btnupup {
+    font-size: unset;
+    font-weight: 600;
+    padding: 1px;
+}
+
+strong.providekey {
+    font-size: medium;
+    color: tomato;
+}
+
+tbody.maincontentpoj {
+    font-size: medium;
+}
+
+.turnright{
+    text-align: right;
+}
+
+a.btn.btn-default.btnupup {
+    margin-bottom: 10px;
+}
+
+.dddd{
+    margin-bottom: 10px;
+}

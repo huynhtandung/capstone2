@@ -1,0 +1,47 @@
+.year_semester{
+    background-color: burlywood;
+}
+.sum{
+    background-color: floralwhite;
+}
+
+.final {
+    color: aliceblue;
+    font-weight: 700;
+    background-color: #337ab7;
+}
+
+.textAlignRight{
+    text-align: right;
+}
+
+.panel.panel-primary {
+    font-size: larger;
+}
+
+span {
+    color: black;
+}
+
+thead {
+    background-color: lightgrey;
+    font-size: large;
+}
+
+tr.year_semester {
+    color: #337ab7;
+    background-color: white;
+    font-weight: 700;
+}
+
+h3.titlepp {
+    font-size: larger;
+    padding: 0;
+    margin: 0;
+}
+
+tr.sum {
+    color: tomato;
+    background-color: #d3d3d3;
+    font-weight: bolder;
+}

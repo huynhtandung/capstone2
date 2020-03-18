@@ -1,0 +1,28 @@
+import { take, call, put} from 'redux-saga/effects';
+import * as announce from '../../constants/EditGrade/announce';
+import {getAnnounceForPDT} from '../../apis/editGrade/editGrade'
+//import {actionGetLecturerStudentClassSuccess, actionGetLecturerStudentClassFail} from '../../actions/lecturerGetStudentClass';
+import {actionGetAnnounceSuccess, actionGetAnnounceFail} from '../../actions/EditGrade/announce';
+
+import {STATUS_CODE} from '../../constants/index';
+import {numberRequestForPDT} from '../../apis/Request/getNumberRequest'
+import {actionNumberRequest} from '../../actions/GetRequest/numberRequest'
+
+ export default function * watchGetAnnounce(){
+    while(true){
+        const action = yield take(announce.GET_ANNOUNCE);
+        const {params} = action.payload;
+        //get so luong request cho dean
+        const res = yield call(numberRequestForPDT, params)
+        yield put(actionNumberRequest(res.data))
+        try{
+            const res = yield call(getAnnounceForPDT, params);
+            const {status, data} = res;
+            if(status === STATUS_CODE.SUCCESS){
+                yield put(actionGetAnnounceSuccess(data));
+            }
+        }catch(err){
+            yield put(actionGetAnnounceFail(err.message));
+        } 
+    }
+}

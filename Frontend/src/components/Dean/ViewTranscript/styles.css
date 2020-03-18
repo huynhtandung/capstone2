@@ -1,0 +1,43 @@
+.item_drop_down{
+    background-color: white;
+    cursor: pointer;
+}
+
+.item_drop_down:hover{
+    background-color: dodgerblue;
+}
+
+.float_left{
+    float: left;
+}
+
+.content2 {
+    position: relative;
+    height: 50px;
+}
+
+.drop2 {
+    position: absolute;
+    top: 6px;
+    left: 230px;
+}
+
+.drop1 {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-size: medium;
+}
+
+.chinhsua {
+    font-size: large;
+}
+
+.chinhxyz{
+    font-size: medium;
+}
+
+.abcz {
+    margin-top: 10px;
+}
+

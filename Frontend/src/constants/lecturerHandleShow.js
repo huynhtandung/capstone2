@@ -1,0 +1,2 @@
+export const LECTURER_SHOW = 'LECTURER_SHOW';
+export const LECTURER_NOT_SHOW = 'LECTURER_NOT_SHOW';

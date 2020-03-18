@@ -1,0 +1,41 @@
+.footer {
+    background-color: #006ba8;
+    text-align: center;
+    height: 60px;
+    margin-top: 10px;
+    color: white;
+    margin-left: 178px;
+    margin-right: 178px;
+}
+
+.fix_bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.col-xs-6.col-sm-6.col-md-6.col-lg-6.footer_right {
+    padding-left: 160px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+h2.foot_Block {
+    margin-top: 15px;
+}
+
+.footer_left{
+    text-align: center;
+}
+
+.footer_right{
+    text-align: center;
+    font-size: medium;
+}
+
+.footer_bottom{
+    text-align: center;
+}

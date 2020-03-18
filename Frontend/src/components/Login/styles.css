@@ -1,0 +1,14 @@
+.panel-login{
+    margin-top: 30%;
+}
+.panel-body{
+    padding: 23px;
+    background-color:	#E6E6FA;
+}
+.btn-login{
+    width: 100%;
+}
+
+.body_pn{
+    padding: 23px !important;
+}

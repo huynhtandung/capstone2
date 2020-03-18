@@ -1,0 +1,121 @@
+.common_header {
+    margin-top: 10px;
+    /* box-shadow: 0 0 30px #2c1ac0; */
+    background-color: #006ba8e8;
+    /* border-bottom-left-radius: 10px; */
+    /* border-bottom-right-radius: 10px; */
+    height: 100px;
+    /* border-top: 1px solid white; */
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0 0 0;
+    border-radius: 4px;
+}
+
+.navbar{
+    margin-bottom: 0px !important;
+    border : none !important;
+}
+
+.pagination li{
+    padding: 10px;
+    margin-left: 1.5px;
+    /*margin-left: 20px;
+    margin-right: 20px;*/
+}
+
+.border{
+    border: 1px solid whitesmoke;
+}
+
+.chung{
+    color: red;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+li#hour_2 {
+    padding-bottom: 0;
+    padding-top: 0;
+    background-color: #dad5d5;
+    font-style: italic; 
+}
+
+li#hour_1 {
+    background-color: #dad5d5;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-style: italic;
+}
+
+li#minute_1 {
+    background-color: #dad5d5;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-style: italic;
+}
+
+li#minute_2 {
+    background-color: #dad5d5;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-style: italic;
+}
+
+b.dau2cham {
+    color: white;
+    font-size: 22px;
+}
+
+li#second_1 {
+    background-color: #dad5d5;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-style: italic;
+}
+
+li#second_2 {
+    background-color: #dad5d5;
+    padding-bottom: 0;
+    font-style: italic;
+    padding-top: 0;
+}
+
+.datetime {
+    margin-top: 4px;
+    border: 1px solid #100e6c54;
+    padding-left: 0px auto;
+    text-align: center;
+    /* margin-top: 10px; */
+    border-radius: 10px;
+    background-color: #00000021;
+    /* margin-bottom: 10px; */
+}
+
+.info {
+    font-size: medium;
+    color: white;
+    padding-left: 143px;
+    margin-top: 35px;
+    letter-spacing: 1px;
+}
+
+img.img-responsive {
+    margin-top: 10px;
+    width: 225px;
+}
+
+.theP {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: 5px;
+    letter-spacing: 0.8px;
+}
+
+p{
+    padding: 0;
+}

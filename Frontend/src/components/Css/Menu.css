@@ -1,0 +1,28 @@
+.my-li{  
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.my-li >  a{
+    color: white !important;
+}
+.my-li >  a  :hover{
+    color: white !important;
+}
+.active-link{
+    border: none !important;
+    
+    border : 2px solid white !important;
+    background-color: cornflowerblue !important;
+}
+.padding_0{
+    padding-left: 0px !important;
+
+}
+
+.menu_background_color{
+    background-color: #007bff;
+}
+
+.user_name{
+    margin-top: 20px;
+}
