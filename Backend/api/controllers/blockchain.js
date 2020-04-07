@@ -74,7 +74,7 @@ module.exports = {
             var bc = new blockchain(data.Address, data.PrivateKey);
             bc.addgr(data.Class, data.ArrayGrade, data.id).then(function(re){
                 res.json(re)
-                console.log(re)
+                console.log('data upload grade', re)
                 //lu transaction hash
                 db.connect().then(function () {
                     var req = new sql.Request(db);

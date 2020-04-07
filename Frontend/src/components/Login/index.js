@@ -141,8 +141,9 @@ class Login extends Component {
                                     <div className="form-group">
                                         <input onChange={this.onChange} type="password" name="txtPassword" className="form-control" required="required" placeholder='Password' />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="form-group" style={{textAlign: "center"}}>
                                         <button type="submit" className="btn btn-danger btn-login">Login</button>
+                                        <a style={{paddingTop: "10px", display: "block"}} href="/public/student-grade">Or view the student grade?</a>
                                     </div>
                                 </div>
                                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>

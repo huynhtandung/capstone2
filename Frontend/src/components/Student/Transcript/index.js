@@ -15,7 +15,7 @@ class StudentTranscript extends Component {
 		const {actionStudentGetAllGrade} = actionGetAllGradeCreators;
 		actionStudentGetAllGrade({
 			//Student_ID : sessionStorage.getItem('id'),
-			"Student_ID" : CryptoJS.AES.decrypt(sessionStorage.getItem('id').toString(), 'huynhtandung-dev').toString(CryptoJS.enc.Utf8),
+			"Student_ID" : this.props.id ? this.props.id : CryptoJS.AES.decrypt(sessionStorage.getItem('id').toString(), 'huynhtandung-dev').toString(CryptoJS.enc.Utf8),
 			Address : '0x06fB399b9245cb14693Ea430323f2e6b15336E1b',
 			PrivateKey : 'E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31',
 		})
@@ -129,7 +129,7 @@ class StudentTranscript extends Component {
 				{console.log(this.props)}
 				<div className="content container">
 					<div className="panel panel-primary">
-						<div className="panel-heading"><h3 className="titlepp"><span>Student ID: </span>{CryptoJS.AES.decrypt(sessionStorage.getItem('id').toString(), 'huynhtandung-dev').toString(CryptoJS.enc.Utf8)}</h3></div>
+						<div className="panel-heading"><h3 className="titlepp"><span>Student ID: </span>{this.props.id ? this.props.id : CryptoJS.AES.decrypt(sessionStorage.getItem('id').toString(), 'huynhtandung-dev').toString(CryptoJS.enc.Utf8)}</h3></div>
 							<div className="table-responsive">
 								<table className="table table-bordered">
 									<thead>

@@ -34,6 +34,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FileNotFound from './components/NotFound/index'
 
 import AdminPage from './components/Admin/index'
+import PublicStudentGrade from './components/PublicStudentGrade';
 
 
 
@@ -126,6 +127,8 @@ class App extends Component {
 
 						<AdminRoute path="/admin/home" component={AdminPage} exact={true} />
 						<AdminRoute path="/admin/logout" component={Logout} exact={true} />
+
+						<Route path="/public/student-grade" component={PublicStudentGrade}  exact={true} />
 
 					</Switch>	 
 				</Router>
