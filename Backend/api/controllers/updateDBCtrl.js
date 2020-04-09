@@ -51,5 +51,20 @@ module.exports = {
         .catch(function (err) {
             res.json(err)
         });      
+    },
+
+    //sync balance 
+    syncBalance : (req, res) => {
+        let data = req.body
+        console.log("SYNC", data)
+        db.connect().then(function(){
+            var req = new sql.Request(db);
+            req.query(
+                `Update Wallet set Balance = ${data.balance} where WalletAddress = '${data.address}' `
+            ).then(function (result) { 
+                db.close(); 
+                res.json('OK')
+            })
+        })
     }
 }

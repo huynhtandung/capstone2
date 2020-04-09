@@ -34,4 +34,15 @@ export const  actionUpdateBalance = (number, position) => {
     };
 }
 
+export const  actionSynchronizeBalance = (index, balance) => {
+    //console.log('Action', index, "Balance",balance)
+    return{
+        type : constant.SYNCHRONIZE_BALANCE,
+        payload : {
+            index,
+            balance
+        }
+    };
+}
+
 

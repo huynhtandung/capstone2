@@ -25,3 +25,15 @@ export const sendEth = (params = {}) => {
     return axiosService.post(`${API_ENDPOINT}/${url3}`, params);
 };
 
+const url4 = 'get-balance-db';
+
+export const getBalanceDb = (params = {}) => {
+    return axiosService.post(`${API_ENDPOINT}/${url4}`, params);
+};
+
+const url5 = 'sync-balance';
+
+export const syncBalance = (params = {}) => {
+    return axiosService.post(`${API_ENDPOINT}/${url5}`, params);
+};
+

@@ -28,6 +28,12 @@ const reducer = (state = initialState, action) => {
             console.log("State: ", state)
             return state;
         }
+        case consts.SYNCHRONIZE_BALANCE:{
+            const {index, balance} = action.payload
+            console.log(state.balance, state.balance[index])
+            state.balance = [state.balance[index].dbBalance = state.balance[index].realBalance, ...state.balance]
+            return state;
+        }
         default :
             return state;
     }

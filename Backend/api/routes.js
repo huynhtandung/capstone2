@@ -196,4 +196,13 @@ module.exports = function(app) {
     .get(adminCtrl.getDepartment)
   app.route('/get-wallet-address-by-department')
     .post(adminCtrl.getWalletAddressByDepartment)
+
+  app.route('/get-fee-trans')
+    .post(blockchain.getFeeTransaction)
+
+  app.route('/get-balance-db')
+    .post(blockchain.getBalanceDb)
+
+  app.route('/sync-balance')
+    .post(updateDBCtrl.syncBalance)
 }

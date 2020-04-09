@@ -31,7 +31,7 @@ class Header extends Component {
                     </p>
                     <p>
                         <span>Balance: </span>
-                        <span className='colorBright'>{Math.round(this.props.balance * 100) / 100} eth</span>
+                        <span className='colorBright'>{Math.round(this.props.balance.realBalance * 100) / 100} eth</span>
                     </p>
                 </div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 containerLogout">  
