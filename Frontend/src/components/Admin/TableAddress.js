@@ -56,6 +56,7 @@ class Address extends Component {
             //document.getElementById(index*-1).innerHTML = Number(document.getElementById(index*-1).innerHTML) + amount
 
             let n = document.getElementById((index + 1) * -1).innerHTML;
+            //console.log(Number((n.slice(0, n.length - 4))))
             document.getElementById((index + 1) * -1).innerHTML = Number((n.slice(0, n.length - 4))) + Number(amount) + "eth";
 
         }
@@ -123,11 +124,11 @@ class Address extends Component {
                     </td>*/}
                     <td>{record.WalletAddress}</td>
                     <td id={(index + 1) * -1}>
+                        {Math.round(balance[index].realBalance * 100) / 100} eth
                         {balance[index].realBalance !== balance[index].dbBalance ?
                             <button onClick={() => this.setBalance(balance[index].realBalance, balance[index].dbBalance, record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Dean_Name, index, record.WalletAddress)} type="button" className="" data-toggle="modal" data-target="#exampleModal">
                                 <i style={{ color: "red", cursor: "pointer", fontSize: "15px" }} className="glyphicon glyphicon-question-sign"></i>
                             </button> : ''}
-                        &nbsp;{Math.round(balance[index].realBalance * 100) / 100} eth
                     </td>
                     <td>
                         <input type="number" id={index} step="0.1" max="10" size="5" onChange={() => this.onChangeValue(index)} className="form-control" required="required" />
@@ -164,7 +165,7 @@ class Address extends Component {
                         </table>
                     </div>
                     {/*Modal display balance*/}
-                    <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">

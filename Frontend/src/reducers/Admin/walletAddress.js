@@ -23,9 +23,8 @@ const reducer = (state = initialState, action) => {
         }
         case consts.UPDATE_BALANCE:{
             const {number, position} = action.payload;
-            console.log("HEHE: ", number, position, state.balance[position])
-            state.balance[position] = state.balance[position] + number;
-            console.log("State: ", state)
+            console.log("User: ",state.balance[position].realBalance)
+            state.balance[position].realBalance = state.balance[position].realBalance + number;
             return state;
         }
         case consts.SYNCHRONIZE_BALANCE:{

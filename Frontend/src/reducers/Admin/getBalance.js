@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case consts.GET_BALANCE_SUCCESS:{
             const {data} = action.payload;
             //console.log('REducer', data)
-            state = data;
+            state = data.realBalance;
             return state;
         }
         case consts.GET_BALANCE_FAIL:{
@@ -20,6 +20,7 @@ const reducer = (state = initialState, action) => {
         }
         case consts.UPDATE_BALANCE_FOR_ADMIN:{
             const {number} = action.payload;
+            console.log("Balance admin: ", state)
             state = state - number;
             return state;
         }
