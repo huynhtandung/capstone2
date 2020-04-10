@@ -16,7 +16,7 @@ class Content extends Component {
 
     getWalletAddress = (data, type) =>{
         this.setState({
-            title : type === 'AAD' ? 'Academic Affrais Department' : type==='DEAN' ? "Dean" :  data.Dep_Name
+            title : type === 'AAD' ? 'Academic Affrais Department' : type==='DEAN' ? "Dean" :  type==='ALL' ? 'ALL' : data.Dep_Name
         })
         const {actionGetWalletAddressC} = this.props;
         const {actionGetWalletAddress} = actionGetWalletAddressC;
@@ -45,6 +45,11 @@ class Content extends Component {
             xhtml.push(
                 <li key={-1}>
                     <button onClick={()=>this.getWalletAddress(null, 'AAD')} type="button" className="btn btn-info dep">Academic Affrais Department</button>
+                </li>
+            )
+            xhtml.push(
+                <li key={-111}>
+                    <button onClick={()=>this.getWalletAddress(null, 'ALL')} type="button" className="btn btn-info dep">All</button>
                 </li>
             )
         }

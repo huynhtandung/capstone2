@@ -17,6 +17,7 @@ export default function* watchGetWalletAddress() {
             const { status, data } = res;
             if (status === STATUS_CODE.SUCCESS) {
                 var dl = data;
+                console.log('DAY: ', dl, params)
                 try {
                     var balance = []
                     for (let i = 0; i < dl.length; i++) {
@@ -52,6 +53,7 @@ export default function* watchGetWalletAddress() {
 
                 } catch (err) { }
 
+                console.log(data)
                 yield put(actionGetWalletAddressSuccess({
                     address: data,
                     balance: balance

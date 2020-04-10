@@ -210,7 +210,7 @@ class InputGrade extends Component {
 
                     actionPDTSubmitGrade(params)
                 } else {
-                    toastify.toastifyError('Incorrect Private Key');
+                    toastify.toastifyError('Incorrect Private Key or Your account has been lock');
                 }
             }
             )

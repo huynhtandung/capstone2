@@ -37,3 +37,9 @@ export const syncBalance = (params = {}) => {
     return axiosService.post(`${API_ENDPOINT}/${url5}`, params);
 };
 
+const url6 = 'active-account';
+
+export const activeAccount = (params = {}) => {
+    return axiosService.post(`${API_ENDPOINT}/${url6}`, params);
+};
+

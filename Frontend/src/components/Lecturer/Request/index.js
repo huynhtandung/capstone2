@@ -94,7 +94,7 @@ class LecturerRequest extends Component {
 if(renderTodos === null){
 			renderTodos = (
 				<tr>
-					<td colSpan="4">
+					<td colSpan="5">
 						No Request
 					</td>
 				</tr>

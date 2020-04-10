@@ -5,7 +5,7 @@ var sql = require("mssql");
 const db = require('../db');
 
 module.exports = {
-    checkPrivateKey: (req, res) => {
+    /*checkPrivateKey: (req, res) => {
         var data= req.body;
         db.connect().then(function () {
             var req = new sql.Request(db);
@@ -15,6 +15,35 @@ module.exports = {
                 if(result.recordset.length !== 0)
                 {
                     res.json(result.recordset[0])
+                    db.close()
+                }
+                else{       
+                    res.json(null)
+                    db.close()
+                }
+            })     
+        })
+        .catch(function (err) {
+            res.json(err)
+        });      
+    },*/
+    checkPrivateKey: (req, res) => {
+        var data= req.body;
+        db.connect().then(function () {
+            var req = new sql.Request(db);
+            req.query(
+                `Select WalletAddress, PrivateKey, Status from Wallet where PrivateKey = '${data.PrivateKey}'`
+            ).then(function (result) {    
+                if(result.recordset.length !== 0)
+                {
+                    //console.log(result.recordset[0])
+                    const duLieu = result.recordset[0]
+                    if(duLieu.Status === true){
+                        res.json(result.recordset[0])
+                    }
+                    else{
+                        res.json(null)
+                    }
                     db.close()
                 }
                 else{       

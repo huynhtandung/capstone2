@@ -7,10 +7,14 @@ import * as actionUpdateBalanceForAdmin from '../../actions/Admin/balance'
 import * as actionUpdateBalance from '../../actions/Admin/walletAddress'
 
 import { syncBalance } from '../../apis/Admin/index'
+import './css/switch.css'
 
+import { activeAccount } from '../../apis/Admin/index'
 
 let bl = 0;
 let actBl = 0;
+
+const ROUNT_NUMBER = 100000
 
 class Address extends Component {
 
@@ -56,8 +60,8 @@ class Address extends Component {
             //document.getElementById(index*-1).innerHTML = Number(document.getElementById(index*-1).innerHTML) + amount
 
             let n = document.getElementById((index + 1) * -1).innerHTML;
-            //console.log(Number((n.slice(0, n.length - 4))))
-            document.getElementById((index + 1) * -1).innerHTML = Number((n.slice(0, n.length - 4))) + Number(amount) + "eth";
+            console.log("AFTER SEND: ", Number((n.slice(0, n.length - 4))))
+            document.getElementById((index + 1) * -1).innerHTML = Number(n.split(' ')[0]) + Number(amount) + " eth";
 
         }
         /*let n = document.getElementById(index*-1).innerHTML;
@@ -106,6 +110,46 @@ class Address extends Component {
         })
     }
 
+    activeAccount = (index, address) => {
+        const element = document.querySelector(`.input${index}`)
+        const active = element.checked;
+
+        
+        //call api active account
+        activeAccount({
+            Status : active,
+            Address: address
+        }).then(res=>{
+            console.log('OK')
+        })
+
+
+
+
+    }
+
+    componentDidUpdate(){
+        const isOK = document.querySelector(`input`)
+        if(isOK){
+            const elements = Array.from(document.querySelectorAll('.active'))
+            elements.map((e, index)=>{
+                const result = this.getCheck(e.id+'')
+                e.checked = result;
+            })
+            
+        }
+    }
+
+    getCheck = (address1) => {
+        const address = this.props.address
+        for(let i = 0;i<address.length ; i++){
+            if(address[i].WalletAddress.trim() === address1.trim()){
+                return this.props.balance[i].status
+            }
+        }
+    }
+
+
     renderTable = (address, balance) => {
         let xhtml = null;
         xhtml = address.map((record, index) => {
@@ -114,7 +158,7 @@ class Address extends Component {
                     <td>{index + 1}</td>
                     <td>
                         {
-                            record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Dean_Name
+                            record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Name ? record.Name : record.Dean_Name
                         }
                     </td>
                     {/*<td>
@@ -123,21 +167,29 @@ class Address extends Component {
                         }
                     </td>*/}
                     <td>{record.WalletAddress}</td>
-                    <td id={(index + 1) * -1}>
-                        {Math.round(balance[index].realBalance * 100) / 100} eth
-                        {balance[index].realBalance !== balance[index].dbBalance ?
-                            <button onClick={() => this.setBalance(balance[index].realBalance, balance[index].dbBalance, record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Dean_Name, index, record.WalletAddress)} type="button" className="" data-toggle="modal" data-target="#exampleModal">
-                                <i style={{ color: "red", cursor: "pointer", fontSize: "15px" }} className="glyphicon glyphicon-question-sign"></i>
-                            </button> : ''}
-                    </td>
                     <td>
-                        <input type="number" id={index} step="0.1" max="10" size="5" onChange={() => this.onChangeValue(index)} className="form-control" required="required" />
+                        <label className="switch">
+                            <input type="checkbox" className={`active input${index}`} onClick={()=>this.activeAccount(index, record.WalletAddress)} id={record.WalletAddress}/>
+                            <span className="slider round"></span>
+                        </label>
+                
                     </td>
-                    <td>
-                        <button onClick={() => this.sendEth(record.WalletAddress, index)} type="submit" className="btn btn-primary">Send</button>
-                    </td>
+                        <td id={(index + 1) * -1}>
+                            {Math.round(balance[index].realBalance * 100) / 100} eth &nbsp;
+                        {Math.round(balance[index].realBalance * ROUNT_NUMBER) / ROUNT_NUMBER !== Math.round(balance[index].dbBalance * ROUNT_NUMBER) / ROUNT_NUMBER ?
+                                <button onClick={() => this.setBalance(balance[index].realBalance, balance[index].dbBalance, record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Dean_Name, index, record.WalletAddress)} type="button" className="" data-toggle="modal" data-target="#exampleModal">
+                                    <i style={{ color: "red", cursor: "pointer", fontSize: "15px" }} className="glyphicon glyphicon-question-sign"></i>
+                                </button> : ''}
+                        </td>
+                        <td>
+                            <input type="number" id={index} step="0.1" max="10" size="5" onChange={() => this.onChangeValue(index)} className="form-control" required="required" />
+                        </td>
+                        <td>
+                            <button onClick={() => this.sendEth(record.WalletAddress, index)} type="submit" className="btn btn-primary">Send</button>
+                        </td>
                 </tr>
             )
+
         })
         return xhtml;
     }
@@ -145,66 +197,67 @@ class Address extends Component {
         return (
             this.props.address.length > 0
                 ?
-                <div>
-                    <div className="table-responsive">
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
+                    <div>
+                        <div className="table-responsive">
+                            <table className="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
 
-                                    <th>Address</th>
-                                    <th>Balance</th>
-                                    <th>Ethereum</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.renderTable(this.props.address, this.props.balance)}
-                            </tbody>
-                        </table>
-                    </div>
-                    {/*Modal display balance*/}
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Violent balance</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                    Balance in the system: {this.state.balance} eth <br />
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                        <th>Balance</th>
+                                        <th>Ethereum</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.renderTable(this.props.address, this.props.balance)}
+                                </tbody>
+                            </table>
+                        </div>
+                        {/*Modal display balance*/}
+                        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Violent balance</h5>
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        Balance in the system: {this.state.balance} eth <br />
                                     Actual Balance: {this.state.actualBalance} eth
                                     <hr />
-                                    {+this.state.balance < +this.state.actualBalance
-                                        ? `Lecturer ${this.state.name} has transfered money to their wallet`
-                                        : `Lecturer ${this.state.name} has used the wallet for personal purpose`
-                                    }
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button onClick={() => this.synchronize(this.state.index, this.state.actualBalance, this.state.address)} data-dismiss="modal" type="button" className="btn btn-primary">Synchronize</button>
+                                        {+this.state.balance < +this.state.actualBalance
+                                            ? `Lecturer ${this.state.name} has transfered money to their wallet`
+                                            : `Lecturer ${this.state.name} has used the wallet for personal purpose`
+                                        }
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button onClick={() => this.synchronize(this.state.index, this.state.actualBalance, this.state.address)} data-dismiss="modal" type="button" className="btn btn-primary">Synchronize</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 : ""
         )
     }
 }
 const mapStateToProps = state => {
     return {
-        address: state.walletAddress.address,
+                        address: state.walletAddress.address,
         balance: state.walletAddress.balance,
         max: state.balance
     };
 };
 const mapDispatchToProps = dispatch => {
     return {
-        actionSendEthC: bindActionCreators(actionSendEth, dispatch),
+                        actionSendEthC: bindActionCreators(actionSendEth, dispatch),
         actionUpdateBalanceForAdminC: bindActionCreators(actionUpdateBalanceForAdmin, dispatch),
         actionUpdateBalanceC: bindActionCreators(actionUpdateBalance, dispatch)
     };

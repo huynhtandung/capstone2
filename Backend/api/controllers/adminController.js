@@ -62,19 +62,37 @@ module.exports = {
                         }
                     }) 
                 }else{
-                    req.query(
-                        `Select Lecturer.Lecturer_ID, Lecturer.Lecturer_Name,  Lecturer.WalletAddress from Lecturer where Lecturer.Lecturer_Dep_ID = '${data.Dep_ID}'`
-                    ).then(function (result) { 
-                        if(result.recordset.length !== 0)
-                        {
-                            res.json(result.recordset)
-                            db.close()
-                        }
-                        else{       
-                            res.json()
-                            db.close()
-                        }
-                    }) 
+                    if(data.Type === 'LEC'){
+                        req.query(
+                            `Select Lecturer.Lecturer_ID, Lecturer.Lecturer_Name,  Lecturer.WalletAddress from Lecturer where Lecturer.Lecturer_Dep_ID = '${data.Dep_ID}'`
+                        ).then(function (result) { 
+                            if(result.recordset.length !== 0)
+                            {
+                                res.json(result.recordset)
+                                db.close()
+                            }
+                            else{       
+                                res.json()
+                                db.close()
+                            }
+                        }) 
+                    }
+                    else{
+                        console.log('VO day')
+                        req.query(
+                            `Select UserId, Wallet.WalletAddress, Name from Wallet where UserID<> 'admin'`
+                        ).then(function (result) { 
+                            if(result.recordset.length !== 0)
+                            {
+                                res.json(result.recordset)
+                                db.close()
+                            }
+                            else{       
+                                res.json()
+                                db.close()
+                            }
+                        }) 
+                    }
                 }
             }
         })

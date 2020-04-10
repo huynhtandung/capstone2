@@ -78,7 +78,7 @@ class TableItem extends React.Component {
 					//console.log(paramBC)
 					actionAcceptRequest(paramBC)
 				} else {
-					toasty.toastifyError("Incorrect Private Key")
+					toasty.toastifyError("Incorrect Private Key or Your account has been lock")
 				}
 			})
 

@@ -66,5 +66,18 @@ module.exports = {
                 res.json('OK')
             })
         })
+    },
+
+    activeAccount : (req, res) => {
+        let data = req.body
+        db.connect().then(function(){
+            var req = new sql.Request(db);
+            req.query(
+                `Update Wallet set Status = ${data.Status ===true ? 1 : 0} where WalletAddress = '${data.Address}' `
+            ).then(function (result) { 
+                db.close(); 
+                res.json('OK')
+            })
+        })
     }
 }

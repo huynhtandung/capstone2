@@ -205,7 +205,7 @@ module.exports = {
         db.connect().then(function () {
             var req = new sql.Request(db);
             //console.log(`select Balance from Wallet where WalletAddress = '${data.ListOfAddress.trim()}'`)
-            req.query(`select Balance from Wallet where WalletAddress = '${data.ListOfAddress.trim()}'`).then(function (result) {    
+            req.query(`select Balance, Status from Wallet where WalletAddress = '${data.ListOfAddress.trim()}'`).then(function (result) {    
                // console.log(result)
                 db.close()
                 var bc = new blockchain(data.Address.trim(), data.PrivateKey.trim());
@@ -213,7 +213,8 @@ module.exports = {
                     //console.log("result ", result)
                     const a = {
                         realBalance : re,
-                        dbBalance : result.recordset.length > 0 ? result.recordset[0].Balance : 0
+                        dbBalance : result.recordset.length > 0 ? result.recordset[0].Balance : 0,
+                        status : result.recordset.length > 0 ? result.recordset[0].Status : null,
                     }
                     //console.log(a)
                     res.json(a)

@@ -83,7 +83,7 @@ class TableItem extends React.Component {
 					const { actionLecturerRequestUploadGrade } = lecturerRequestUploadGradeCreators
 					actionLecturerRequestUploadGrade(paramBC)
 				} else {
-					toasty.toastifyError("Incorrect Private Key")
+					toasty.toastifyError("Incorrect Private Key or Your accounr has been lock")
 				}
 			}
 		)
@@ -119,7 +119,7 @@ class TableItem extends React.Component {
 						renderAgain: !this.state.renderAgain
 					})
 				} else {
-					toasty.toastifyError("Incorrect Private Key")
+					toasty.toastifyError("Incorrect Private Key or Your account has been lock")
 				}
 			}
 		)

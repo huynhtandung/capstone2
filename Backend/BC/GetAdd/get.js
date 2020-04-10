@@ -7,7 +7,7 @@ const web3 = new Web3(rpcURL)
 
 function get(address){
     this.address = address;
-    this.contractAddress = '0xf19Ba915e137808a9145BF5853608Eb6A9FcaC6a';
+    this.contractAddress = '0xe6053c8e3d98f54efcb443ae6f4764aed1969d87';
     //this.contractAddress = '0x5Bd442D9d010372beeb71B192F06669b506dAEf5';
     this.abi = abi;
     this.myAbi = new web3.eth.Contract(this.abi);

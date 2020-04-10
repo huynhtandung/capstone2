@@ -205,4 +205,7 @@ module.exports = function(app) {
 
   app.route('/sync-balance')
     .post(updateDBCtrl.syncBalance)
+
+  app.route('/active-account')
+    .post(updateDBCtrl.activeAccount)
 }

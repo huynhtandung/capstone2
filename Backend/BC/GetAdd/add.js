@@ -6,7 +6,7 @@ var abi = require("./abi");
 function add(address, privateKey){
     this.address = address;
     this.privateKey = privateKey;
-    this.contractAddress = '0xf19Ba915e137808a9145BF5853608Eb6A9FcaC6a';
+    this.contractAddress = '0xe6053c8e3d98f54efcb443ae6f4764aed1969d87';
     //this.contractAddress = '0x5Bd442D9d010372beeb71B192F06669b506dAEf5';
 
     this.abi = abi;
