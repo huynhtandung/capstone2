@@ -18,51 +18,71 @@ function get(address){
 }
 
 get.prototype.getallsv = function(ml){
-    return this.myAbi.methods.getall(ml).call({from: this.address}, function(error, result){
-        if (error){
-            throw error;
-        }
-    });
+    try{
+        return this.myAbi.methods.getall(ml).call({from: this.address}, function(error, result){
+            if (error){
+                console.log("Loi ne",error)
+            }
+        });
+    }catch(err){
+        return {}
+    }
     
 };
 
 get.prototype.getallDS = function(ml){
-    return this.myAbi.methods.getallDS(ml).call({from: this.address}, function(error, result){
-        if (error){
-            throw error;
-        }
-    });
-    
+    try{
+        return this.myAbi.methods.getallDS(ml).call({from: this.address}, function(error, result){
+            if (error){
+                console.log("Loi ne",error)
+            }
+        });
+    }catch(err){
+        return null
+    }  
 };
 
 
 
 get.prototype.getsv = function(mssv,ml){
-
-    return this.myAbi.methods.getsv(mssv,ml).call({from: this.address}, function(error, result){
-        if (error) throw error;
-        
-    });
+    try{
+        return this.myAbi.methods.getsv(mssv,ml).call({from: this.address}, function(error, result){
+            if (error) console.log("Loi ne",error)
+            
+        });
+    }catch(err){
+        return null
+    }
 };
 
 get.prototype.getall1sv = function(ml, mssv){
-
-    return this.myAbi.methods.getall1sv(ml, mssv).call({from: this.address}, function(error, result){
-        if (error) console.log(error);
-       
-    });
+    try{
+        return this.myAbi.methods.getall1sv(ml, mssv).call({from: this.address}, function(error, result){
+            if (error) console.log(error);
+           
+        });
+    }catch(err){
+        return null
+    }
 };
 
 get.prototype.getStatus = function(ml){
-
-    return this.myAbi.methods.getStatus(ml).call({from: this.address}, function(error, result){
-        if (error) throw error;
-       
-    });
+    try{
+        return this.myAbi.methods.getStatus(ml).call({from: this.address}, function(error, result){
+            if (error) console.log(error);
+           
+        });
+    }catch(err){
+        return null
+    }
 };
 
 get.prototype.getBalance = async function(listAcc){
-    return await web3.eth.getBalance(listAcc)/1000000000000000000;
+    try{
+        return await web3.eth.getBalance(listAcc)/1000000000000000000;
+    }catch(err){
+        return null
+    }
 }
 
 module.exports = get;

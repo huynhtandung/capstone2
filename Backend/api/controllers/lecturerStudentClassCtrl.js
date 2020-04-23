@@ -10,7 +10,7 @@ module.exports = {
         console.log(data)
         db.connect().then(function () {
             var req = new sql.Request(db);
-            req.query(`Select JoinSession.JS_Student_ID, Student.Student_Name from JoinSession, Student 
+            req.query(`Select JoinSession.JS_Student_ID, Student.Student_Name, Student.Sex from JoinSession, Student 
 			where JoinSession.JS_Student_ID = Student.Student_ID and
 		  	JoinSession.JS_Session_ID = ${data.Session_ID} `).then(function (result) {
 		

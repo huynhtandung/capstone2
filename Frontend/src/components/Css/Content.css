@@ -11,3 +11,7 @@
 tbody.annoucecontentiui {
     font-size: initial;
 }
+
+.panel{
+    border-radius: 0px;
+}

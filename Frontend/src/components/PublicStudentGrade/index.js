@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actionGetAllGrade from '../../actions/studentGetAllGrade';
 import Modal from './ModalPublic.js'
+import { withRouter } from 'react-router-dom';
 
 class PublicStudentGrade extends Component {
 
@@ -17,7 +18,7 @@ class PublicStudentGrade extends Component {
 
     onCheckGrade = (e) => {
         e.preventDefault();
-        let id = document.querySelector('#idStudent')
+        /*let id = document.querySelector('#idStudent')
         id = id && id.value;
         this.setState({
             id : id
@@ -29,9 +30,14 @@ class PublicStudentGrade extends Component {
 		actionStudentGetAllGrade({
 			//Student_ID : sessionStorage.getItem('id'),
 			"Student_ID" : id,
-			Address : '0x06fB399b9245cb14693Ea430323f2e6b15336E1b',
-			PrivateKey : 'E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31',
-		})
+			Address : '0x4Cdefe5f12b8406710c7dC8ecEB9aAe3b3Cd06F6',
+			PrivateKey : '7AF6C5056A4D6101B95957DDE6499A342F4805D3FDDAFF4894DBA79DFEB6CCB1',
+		})*/
+    }
+
+    onChange = (e) => {
+        console.log(e.target.value)
+        sessionStorage.setItem('idStudent', e.target.value)
     }
 
     render() {
@@ -52,7 +58,10 @@ class PublicStudentGrade extends Component {
                                         <input pattern="[A-Za-z0-9]+" title="Not contain special characters" onChange={this.onChange} type="text" id="idStudent" className="form-control" required="required" placeholder='Student ID' /> 
                                     </div>
                                     <div className="form-group" style={{textAlign: "center"}}>
-                                        <button type="submit" className="btn btn-danger btn-login" data-toggle="modal" data-target="#myModal">Submit</button>
+                                        {/*<button type="submit" className="btn btn-danger btn-login" data-toggle="modal" data-target="#myModal">Submit</button>*/}
+                                        <button type="submit" className="btn btn-danger btn-login">
+                                            <a style={{color:"white",paddingLeft:"130px",paddingRight:"130px"}} target="_blank" href="/public/student-grade/view">Submit</a>
+                                        </button>
                                         <a style={{paddingTop: "10px", display: "block"}} href="/login">Login into the system?</a>
                                     </div>
                                 </div>
@@ -63,7 +72,7 @@ class PublicStudentGrade extends Component {
                 </div>
                 { /* margin right */}
                 <div className="col-xs-0 col-sm-1 col-md-2 col-lg-3 btn-login"></div>
-                <Modal grade={this.props.studentGetAllGrade} class={this.props.studentGetAllClass} id={this.state.id}/>
+                {/*<Modal grade={this.props.studentGetAllGrade} class={this.props.studentGetAllClass} id={this.state.id}/> */}
             </div>
         )
     }

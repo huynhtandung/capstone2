@@ -35,6 +35,8 @@ import FileNotFound from './components/NotFound/index'
 
 import AdminPage from './components/Admin/index'
 import PublicStudentGrade from './components/PublicStudentGrade';
+import Grade from './components/PublicStudentGrade/publicGrade';
+import CV from './components/Student/CV';
 
 
 
@@ -106,6 +108,7 @@ class App extends Component {
 						<StudentRoute path="/student/home" component={StudentHome} exact={true} />
 						<StudentRoute path="/student/detail-transcript" component={StudentDetailTranscript} exact={true} />
 						<StudentRoute path="/student/transcript" component={StudentTranscript} exact={true} />
+						<StudentRoute path="/student/make-cv" component={CV} exact={true} />
 						<StudentRoute path="/student/logout" component={Logout} exact={true} />
 
 						<LecturerRoute path="/lecturer/home" component={LecturerHome} exact={true} />
@@ -129,6 +132,7 @@ class App extends Component {
 						<AdminRoute path="/admin/logout" component={Logout} exact={true} />
 
 						<Route path="/public/student-grade" component={PublicStudentGrade}  exact={true} />
+						<Route path="/public/student-grade/view" component={Grade}  exact={true} />
 
 					</Switch>	 
 				</Router>

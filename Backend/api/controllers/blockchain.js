@@ -50,8 +50,10 @@ module.exports = {
     getGradeClass: (req, res) => {
         var data = req.body;
         try {
+            console.log('GET GRADE CLASS')
             var bc = new blockchain(data.Address, data.PrivateKey);
             bc.getAll(data.Class).then(function (re) {
+                console.log(re)
                 res.json(re)
             });
         } catch (err) {

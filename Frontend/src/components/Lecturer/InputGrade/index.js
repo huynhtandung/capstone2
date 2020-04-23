@@ -56,6 +56,14 @@ class InputGrade extends Component {
 		})
 	}
 	SessionI = (year) => {
+
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
+
+
 		const data = {
 			Year : year,
 			Session : "I"
@@ -77,6 +85,11 @@ class InputGrade extends Component {
 	}
 
 	SessionII = (year) => {
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
 		const data = {
 			Year : year,
 			Session : "II"
@@ -98,6 +111,11 @@ class InputGrade extends Component {
 	}
 
 	SessionSummer = (year) => {
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
 		const data = {
 			Year : year,
 			Session : "Summer"
@@ -154,6 +172,7 @@ class InputGrade extends Component {
 		const {actionLecturerShow} = actionLecturerHandleShowCreator;
 		actionLecturerShow({
 			"ViewClassGrade" : false,
+			isShowReport: false,
 		})
 
 		this.setState({

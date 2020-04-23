@@ -38,6 +38,11 @@ class DeanViewGrade extends Component {
 		})
 	}
 	SessionI = (year) => {
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
 		const data = {
 			Year: year,
 			Session: "I"
@@ -59,6 +64,11 @@ class DeanViewGrade extends Component {
 	}
 
 	SessionII = (year) => {
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
 		const data = {
 			Year: year,
 			Session: "II"
@@ -80,6 +90,11 @@ class DeanViewGrade extends Component {
 	}
 
 	SessionSummer = (year) => {
+		const {actionLecturerHandleShowCreator} = this.props;
+		const {actionLecturerShow} = actionLecturerHandleShowCreator;
+		actionLecturerShow({
+			isShowReport: false,
+		})
 		const data = {
 			Year: year,
 			Session: "Summer"

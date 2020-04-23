@@ -151,6 +151,7 @@ class Address extends Component {
 
 
     renderTable = (address, balance) => {
+        console.log(address)
         let xhtml = null;
         xhtml = address.map((record, index) => {
             return (
@@ -177,7 +178,7 @@ class Address extends Component {
                         <td id={(index + 1) * -1}>
                             {Math.round(balance[index].realBalance * 100) / 100} eth &nbsp;
                         {Math.round(balance[index].realBalance * ROUNT_NUMBER) / ROUNT_NUMBER !== Math.round(balance[index].dbBalance * ROUNT_NUMBER) / ROUNT_NUMBER ?
-                                <button onClick={() => this.setBalance(balance[index].realBalance, balance[index].dbBalance, record.Lecturer_Name ? record.Lecturer_Name : record.AAD_Name ? record.AAD_Name : record.Dean_Name, index, record.WalletAddress)} type="button" className="" data-toggle="modal" data-target="#exampleModal">
+                                <button onClick={() => this.setBalance(balance[index].realBalance, balance[index].dbBalance, record.Name, index, record.WalletAddress)} type="button" className="" data-toggle="modal" data-target="#exampleModal">
                                     <i style={{ color: "red", cursor: "pointer", fontSize: "15px" }} className="glyphicon glyphicon-question-sign"></i>
                                 </button> : ''}
                         </td>

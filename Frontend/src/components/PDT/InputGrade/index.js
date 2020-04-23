@@ -41,6 +41,7 @@ class PDTInputGrade extends Component {
 	}
 
 	SessionI = (year) => {
+		
 		const data = {
 			Year: year,
 			Session: "I"
@@ -57,7 +58,8 @@ class PDTInputGrade extends Component {
 			Semester: 'I',
 			titleSchoolYear: 'School Year ' + year + ' Session I ',
 			titleDepartment: 'Choose department ',
-			ViewClassGrade: false
+			ViewClassGrade: false,
+			isShowReport: false
 		})
 		//lay ds cac khoa, ko the dua vo compoentdidmount - giai quyet tam thoi
 		const { actionDepartmentCreators } = this.props;
@@ -70,6 +72,7 @@ class PDTInputGrade extends Component {
 	}
 
 	SessionII = (year) => {
+		
 		const data = {
 			Year: year,
 			Session: "II"
@@ -85,7 +88,8 @@ class PDTInputGrade extends Component {
 			Semester: 'II',
 			titleSchoolYear: 'School Year ' + year + ' Session II ',
 			titleDepartment: 'Choose department ',
-			ViewClassGrade: false
+			ViewClassGrade: false,
+			isShowReport: false
 		})
 		//lay ds cac khoa, ko the dua vo compoentdidmount - giai quyet tam thoi
 		const { actionDepartmentCreators } = this.props;
@@ -98,6 +102,7 @@ class PDTInputGrade extends Component {
 	}
 
 	SessionSummer = (year) => {
+		
 		const data = {
 			Year: year,
 			Session: "Summer"
@@ -113,7 +118,8 @@ class PDTInputGrade extends Component {
 			Semester: 'Summer',
 			titleSchoolYear: 'School Year ' + year + ' Session Summer ',
 			titleDepartment: 'Choose department ',
-			ViewClassGrade: false
+			ViewClassGrade: false,
+			isShowReport: false
 		})
 		//lay ds cac khoa, ko the dua vo compoentdidmount - giai quyet tam thoi
 		const { actionDepartmentCreators } = this.props;

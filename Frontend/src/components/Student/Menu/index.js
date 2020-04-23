@@ -21,6 +21,11 @@ const menus = [
 		exact : true
 	},
 	{
+		name : <i className="glyphicon glyphicon-file">&nbsp;CV</i>,
+		to : '/student/make-cv',
+		exact : true
+	},
+	{
 		name: <i className="glyphicon glyphicon-log-out">&nbsp;Logout</i>,
 		to: '/student/logout',
 		exact : true

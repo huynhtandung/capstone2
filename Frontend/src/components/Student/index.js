@@ -7,6 +7,7 @@ import StudentDetailTranscript from '../DetailTranscript';
 import Logout from '../Logout';
 
 import Footer from '../Header_Footer/footer'
+import CV from './CV';
 
 const routes = [
 	{
@@ -23,6 +24,11 @@ const routes = [
 		path : '/student/transcript',
 		exact : true,
 		main : ({location, match})=><StudentTranscript location={location} match={match}/>
+	},
+	{
+		path : '/student/make-cv',
+		exact : true,
+		main : ({location, match})=><CV location={location} match={match}/>
 	},
 	{
 		path : '/student/logout',

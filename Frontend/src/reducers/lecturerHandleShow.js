@@ -11,7 +11,8 @@ const initialState = {
     "IsUploadOutline" : false,
     "IsEditGrade" : [],
     "ViewHistoryGrade" : false,
-    "stt" : ''
+    "stt" : '',
+    isShowReport : false
    
 }
 
@@ -44,6 +45,8 @@ const reducer = (state = initialState, action) => {
                 state.stt = data.stt
                 console.log('Set stt vao store', state.stt)
             }
+            if(data.isShowReport === true || data.isShowReport === false)
+                state.isShowReport = data.isShowReport
             return state;
         }
         case lecturerHandleShow.LECTURER_NOT_SHOW:{

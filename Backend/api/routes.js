@@ -208,4 +208,7 @@ module.exports = function(app) {
 
   app.route('/active-account')
     .post(updateDBCtrl.activeAccount)
+
+  app.route('/report/:grade/:student/:n')
+    .get(exportExcelCtrl.exportReport)
 }
