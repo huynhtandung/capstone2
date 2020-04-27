@@ -282,6 +282,7 @@ function* watchGetStudentAllGrade() {
                             Student_ID: params.Student_ID,
                             ArrayClass: arr
                         }
+                        console.log('DA CHAY VO DAY: ', paramBC)
                         //console.log(paramBC)
                         try {
                             const res = yield call(studentGetAllGrade, paramBC);

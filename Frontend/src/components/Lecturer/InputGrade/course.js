@@ -101,11 +101,13 @@ class Course extends Component {
         Session_ID: course.Session_ID,
       },
       GetClassGradeBC: {
-        //Address : '0x06fB399b9245cb14693Ea430323f2e6b15336E1b',
-        //PrivateKey : 'E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31',
-        Address: "0x3F51Fb174e5fC0e3B75d2040Dd97EE82290f2b1c",
+        /*Address : '0x06fB399b9245cb14693Ea430323f2e6b15336E1b',
+        PrivateKey : 'E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31',*/
+        Address: '0x6DeFAd2d9841203B9C7062c143FEd7295d065aaE',
+                            PrivateKey: '2c950eba9f6ddbc30db5d607f8db31b4aed7fa12fa9f74b8997cb09fb9af609e',
+       /* Address: "0x3F51Fb174e5fC0e3B75d2040Dd97EE82290f2b1c",
         PrivateKey:
-          "8BC5DD862E7B6702E20294E636EF0DE11B73523653E405C7F61F4587ED1E15F7",
+          "8BC5DD862E7B6702E20294E636EF0DE11B73523653E405C7F61F4587ED1E15F7",*/
         Class: this.ignoreSpaces(
           `${this.props.titleDropdown.Year}-${this.props.titleDropdown.Session}-${this.props.lecturerHandleShow.Course.Session_ID}-${this.props.lecturerHandleShow.Course.Course_ID}`
         ),

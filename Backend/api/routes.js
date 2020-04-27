@@ -211,4 +211,7 @@ module.exports = function(app) {
 
   app.route('/report/:grade/:student/:n')
     .get(exportExcelCtrl.exportReport)
+
+  app.route('/get-student-info')
+    .post(blockchain.getStudentInfo)
 }

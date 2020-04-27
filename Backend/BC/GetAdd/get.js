@@ -8,12 +8,12 @@ const web3 = new Web3(rpcURL)
 function get(address){
     this.address = address;
     this.contractAddress = '0xe6053c8e3d98f54efcb443ae6f4764aed1969d87';
-    //this.contractAddress = '0x5Bd442D9d010372beeb71B192F06669b506dAEf5';
+    //this.contractAddress = '0x5dd9C54Dd76cB123C9d1e516c0Cb325693FAc775';
     this.abi = abi;
     this.myAbi = new web3.eth.Contract(this.abi);
     this.myAbi.options.address = this.contractAddress;
     this.myAbi.options.gasPrice = '20000000000000' ; // default gas price in wei
-    this.myAbi.options.gas = 50000000 ;
+    this.myAbi.options.gas = 5000000000 ;
 
 }
 

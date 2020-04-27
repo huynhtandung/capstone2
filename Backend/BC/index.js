@@ -78,7 +78,9 @@ blockchain.prototype.get1sv = async function (ml, mssv) {
 
 // mssv is string, ml is array of string
 blockchain.prototype.getAll1sv = async function (ml, mssv) {
+  console.log('Da chay vo blockchain index.js:81')
   var re = await this.Get.getall1sv(ml, mssv);
+  console.log('After Da chay vo blockchain index.js:81')
   var mon = ml.length;
   var per = [];
   var c = [];

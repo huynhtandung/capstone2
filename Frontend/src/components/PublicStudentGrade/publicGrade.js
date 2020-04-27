@@ -7,19 +7,40 @@ import { bindActionCreators } from "redux";
 import * as actionGetAllGrade from "../../actions/studentGetAllGrade";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { studentInfo } from "../../apis/login";
+
+
+let name = '';
+let course = '';
 
 var CryptoJS = require("crypto-js");
 class Grade extends Component {
   componentDidMount() {
-    const { actionGetAllGradeCreators } = this.props;
-    const { actionStudentGetAllGrade } = actionGetAllGradeCreators;
-    actionStudentGetAllGrade({
-      //Student_ID : sessionStorage.getItem('id'),
+    studentInfo({
       Student_ID: sessionStorage.getItem("idStudent"),
-      Address: "0x06fB399b9245cb14693Ea430323f2e6b15336E1b",
-      PrivateKey:
-        "E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31",
+    }).then((res) => {
+     // console.log("Front end: ", res);
+
+      name = res.data[0].Student_Name
+      course = 'K' + res.data[0].Class_Course + '-' + res.data[0].Class_Name
+
+      console.log(name, course)
+
+
+      const { actionGetAllGradeCreators } = this.props;
+      const { actionStudentGetAllGrade } = actionGetAllGradeCreators;
+      actionStudentGetAllGrade({
+        //Student_ID : sessionStorage.getItem('id'),
+        Student_ID: sessionStorage.getItem("idStudent"),
+        Address: "0x06fB399b9245cb14693Ea430323f2e6b15336E1b",
+        PrivateKey:
+          "E2B5B2798E30B3302D3F4668492112DF83A7997CC29BAC06F338ECBBB5AFDF31",
+      });
     });
+  }
+
+  componentDidUpdate() {
+    //  console.log('Did update')
   }
 
   pdf = () => {
@@ -161,6 +182,7 @@ class Grade extends Component {
     return xhtml;
   };
   render() {
+    console.log("render");
     return (
       <div>
         <div className="content container" id="pdf-content">
@@ -173,6 +195,14 @@ class Grade extends Component {
                 <h3 className="titlepp">
                   <span>Student ID: </span>
                   {sessionStorage.getItem("idStudent")}
+                </h3>
+                <h3 className="titlepp">
+                  <span>Student Name: </span>
+                  {name}
+                </h3>
+                <h3 className="titlepp">
+                  <span>Student Course: </span>
+                  {course}
                 </h3>
               </div>
               <div className="table-responsive">

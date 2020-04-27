@@ -231,7 +231,7 @@ class Login extends Component {
           </div>
         </div>
         {/* margin right */}
-        <div className="col-xs-0 col-sm-1 col-md-2 col-lg-3 btn-login">
+        {/*<div className="col-xs-0 col-sm-1 col-md-2 col-lg-3 btn-login">
           <PDFDownloadLink
             document={<TextPDF />}
             fileName="movielist.pdf"
@@ -247,9 +247,9 @@ class Login extends Component {
               loading ? "Loading document..." : "Download Pdf"
             }
           </PDFDownloadLink>
-          {/*<button type="button" onClick={()=>this.pdf()}>PDF</button>
-          <div id="hello">Hello world</div>*/}
-        </div>
+          <button type="button" onClick={()=>this.pdf()}>PDF</button>
+          <div id="hello">Hello world</div>
+        </div>*/}
       </div>
     );
   }
